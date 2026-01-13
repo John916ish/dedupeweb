@@ -67,16 +67,69 @@ footer a:hover{color:#00e0ff}
 </div>
 </header>
 
-<section>
-<h2>About Dedupes</h2>
-<ul class="info-cards">
-<li class="info-card"><strong>What is Dedupes?</strong><br>Dedupes is a Minecraft server for creativity, fun, and safe item duping. Explore worlds, trade, and enjoy unique gameplay experiences.</li>
-<li class="info-card"><strong>Gameplay Features:</strong><br>Lifesteal mechanics, custom events, trading, mini-games, and creative challenges make every session exciting. Duping items is just part of the fun!</li>
-<li class="info-card"><strong>Community:</strong><br>Join a friendly, active community of players who love collaborating, building, and competing in events and mini-games.</li>
-<li class="info-card"><strong>Regular Updates:</strong><br>We frequently add new mechanics, events, and content to keep the server fresh and fun for both new and veteran players.</li>
-<li class="info-card"><strong>Join Today!</strong><br>Whether you’re a veteran or new player, Dedupes welcomes everyone. Explore, dupe, trade, and have fun in a safe environment!</li>
-</ul>
+<section id="about" style="padding:60px 20px; max-width:1000px; margin:0 auto;">
+    <h2 style="font-size:2.5em; color:#00c6ff; margin-bottom:40px; text-shadow: 1px 1px 5px rgba(0,0,0,0.5);">About Dedupes</h2>
+    <ul style="
+        list-style:none;
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+        gap:30px;
+        padding:0;
+        margin:0 auto;
+    ">
+        <li class="info-card" style="
+            background:#111827;
+            padding:25px;
+            border-radius:15px;
+            box-shadow:0 6px 18px rgba(0,0,0,0.4);
+            transition: all 0.5s ease;
+            opacity:1;
+        ">
+            <strong>What is Dedupes?</strong>
+            <p>Dedupes is a premium Minecraft server focused on fun, creativity, and item duping mechanics in a safe environment. Explore custom worlds, events, and lifesteal gameplay.</p>
+        </li>
+        <li class="info-card" style="
+            background:#111827;
+            padding:25px;
+            border-radius:15px;
+            box-shadow:0 6px 18px rgba(0,0,0,0.4);
+            transition: all 0.5s ease;
+            opacity:1;
+        ">
+            <strong>Gameplay Features</strong>
+            <p>Custom events, unique mechanics, and exciting ways to enjoy Minecraft. Duping is only one part of a rich gameplay experience that keeps players engaged.</p>
+        </li>
+        <li class="info-card" style="
+            background:#111827;
+            padding:25px;
+            border-radius:15px;
+            box-shadow:0 6px 18px rgba(0,0,0,0.4);
+            transition: all 0.5s ease;
+            opacity:1;
+        ">
+            <strong>Community</strong>
+            <p>Join a friendly, active community. Trade, build, and explore together. Respect and collaboration are key to the Dedupes experience.</p>
+        </li>
+        <li class="info-card" style="
+            background:#111827;
+            padding:25px;
+            border-radius:15px;
+            box-shadow:0 6px 18px rgba(0,0,0,0.4);
+            transition: all 0.5s ease;
+            opacity:1;
+        ">
+            <strong>Join Today</strong>
+            <p>Whether you’re a veteran or new player, Dedupes offers a safe and exciting environment to explore unique mechanics. Connect with the community and enjoy the server!</p>
+        </li>
+    </ul>
 </section>
+
+<style>
+.info-card:hover {
+    transform: scale(1.08) rotate(-1deg);
+    box-shadow: 0 12px 30px rgba(0,198,255,0.6);
+}
+</style>
 
 <footer>
 &copy; 2026 Dedupes Minecraft Server | <a href="https://dedupes.xyz">dedupes.xyz</a>
@@ -101,3 +154,4 @@ window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.heig
 
 </body>
 </html>
+
