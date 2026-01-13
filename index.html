@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Dedupes Minecraft Server</title>
+<title>Dedupes</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
@@ -26,7 +26,7 @@
                     url('https://minecraft.net/content/dam/games/minecraft/key-art/Games_Subnav_Minecraft-Vanilla.jpg'); 
         background-size: cover;
         background-position: center;
-        padding: 150px 20px 100px; 
+        padding: 120px 20px 80px; 
         position: relative;
         border-bottom: 3px solid #00c6ff;
     }
@@ -71,10 +71,9 @@
         font-weight: 800;
         margin-top: 10px;
         border: 1px solid rgba(0, 198, 255, 0.3);
-        text-transform: uppercase;
     }
 
-    /* --- SHIMMER BUTTONS --- */
+    /* --- BUTTONS --- */
     .button-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin-top: 30px; }
     .button { 
         padding: 18px 40px; border-radius: 12px; font-weight: 800; color: #fff; 
@@ -89,20 +88,32 @@
     .button:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 198, 255, 0.4); }
 
     .discord { background: #5865F2; }
+    .discord-count { display: block; font-size: 0.6em; opacity: 0.8; font-weight: 400; margin-top: 2px; }
     .store { background: #00c6ff; color: #000; }
     .youtube { background: #FF0000; }
 
-    /* --- INFO CARDS --- */
-    section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
-    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-    .info-card { 
-        background: rgba(255,255,255,0.03); padding: 40px; border-radius: 20px; 
-        border: 1px solid rgba(255,255,255,0.1); transition: 0.5s; opacity: 0; transform: translateY(30px);
-    }
-    .info-card.show { opacity: 1; transform: translateY(0); }
-    .info-card:hover { border-color: #00c6ff; background: rgba(0, 198, 255, 0.05); transform: scale(1.02); }
+    /* --- FAQ SECTION --- */
+    section { padding: 60px 20px; max-width: 900px; margin: 0 auto; }
+    .section-title { font-size: 2.5em; color: #00c6ff; margin-bottom: 40px; }
 
-    footer { padding: 40px; background: #080b10; border-top: 1px solid #111; }
+    .faq-container { text-align: left; }
+    .faq-item { 
+        background: rgba(255,255,255,0.03); 
+        margin-bottom: 15px; 
+        padding: 20px; 
+        border-radius: 15px; 
+        border: 1px solid rgba(255,255,255,0.1);
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .faq-item:hover { background: rgba(0, 198, 255, 0.05); border-color: #00c6ff; }
+    .faq-question { font-weight: 800; color: #00c6ff; display: flex; justify-content: space-between; align-items: center; }
+    .faq-answer { margin-top: 10px; display: none; color: #ccc; font-size: 0.95em; line-height: 1.6; }
+    .faq-item.active .faq-answer { display: block; }
+
+    footer { padding: 40px; background: #080b10; border-top: 1px solid #111; margin-top: 50px; }
+
+    @media(max-width:768px){ header h1 { font-size: 3em; } .button { width: 100%; } }
 </style>
 </head>
 <body>
@@ -110,36 +121,44 @@
 <canvas id="bg"></canvas>
 
 <header>
-    <h1>ᴅᴇᴅᴜᴘᴇѕ</h1>
-    <p style="font-size: 1.2em; letter-spacing: 1px; opacity: 0.9;">Duping Made Easy • No Risks • High Octane Gameplay</p>
+    <h1>DEDUPES</h1>
+    <p style="font-size: 1.2em; opacity: 0.9;">Duping Made Easy • Join the Community</p>
     
     <div class="ip-display" id="copy-ip">
         <span style="font-size: 0.7em; letter-spacing: 2px; opacity: 0.6; display: block;">CLICK TO COPY IP</span>
         <strong id="ip-text" style="font-size: 1.5em; color: #00c6ff;">ᴅᴇᴅᴜᴘᴇѕ.ᴍɪɴᴇʜᴜᴛ.ɢɢ</strong>
         <span id="status-dot">CHECKING SERVER STATUS...</span>
-        <div class="version-badge">Version 1.21+ Required</div>
+        <div class="version-badge">Version 1.21+ Only</div>
     </div>
 
     <div class="button-container">
-        <a href="https://discord.com/invite/1362532775294402771" class="button discord" target="_blank">DISCORD</a>
+        <a href="https://discord.com/invite/1362532775294402771" class="button discord" target="_blank">
+            JOIN DISCORD
+            <span id="discord-stats" class="discord-count">Loading Community...</span>
+        </a>
         <a href="https://dedupes.craftingstore.net/" class="button store" target="_blank">SERVER STORE</a>
         <a href="#" class="button youtube" target="_blank">YOUTUBE</a>
     </div>
 </header>
 
-<section>
-    <div class="info-grid">
-        <div class="info-card">
-            <h3 style="color:#00c6ff; margin-bottom:15px;">Unique Duping</h3>
-            <p>Experience item duplication mechanics that are actually part of the game loop. No bans, just fun.</p>
+<section id="faq">
+    <h2 class="section-title">Common Questions</h2>
+    <div class="faq-container">
+        <div class="faq-item">
+            <div class="faq-question">How do I join Dedupes? <span>+</span></div>
+            <p class="faq-answer">Join <strong>minehut.com</strong> and type <strong>/join dedupes</strong>, or use our direct IP: <strong>dedupes.minehut.gg</strong>.</p>
         </div>
-        <div class="info-card">
-            <h3 style="color:#00c6ff; margin-bottom:15px;">Lifesteal PVP</h3>
-            <p>Battle other players to steal their hearts. Build your strength and dominate the leaderboard.</p>
+        <div class="faq-item">
+            <div class="faq-question">Is duplicating allowed? <span>+</span></div>
+            <p class="faq-answer">Absolutely. We have built custom mechanics so duplication is a legal and fun part of your progress here.</p>
         </div>
-        <div class="info-card">
-            <h3 style="color:#00c6ff; margin-bottom:15px;">Active Staff</h3>
-            <p>Our team is online 24/7 to ensure a fair and lag-free experience for every player on the network.</p>
+        <div class="faq-item">
+            <div class="faq-question">What version should I use? <span>+</span></div>
+            <p class="faq-answer">We support Java Edition <strong>1.21 and higher</strong>. Use version 1.21.8 for the best performance.</p>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">How does Lifesteal work? <span>+</span></div>
+            <p class="faq-answer">Eliminate players to steal their hearts. If you lose yours, teammates can revive you or you can find hearts in the shop!</p>
         </div>
     </div>
 </section>
@@ -149,54 +168,53 @@
 </footer>
 
 <script>
-    // Copy IP Script
+    // 1. Copy IP
     document.getElementById('copy-ip').addEventListener('click', () => {
         navigator.clipboard.writeText("dedupes.minehut.gg");
         const ipTxt = document.getElementById('ip-text');
-        const oldTxt = ipTxt.innerText;
         ipTxt.innerText = "IP COPIED!";
-        setTimeout(() => { ipTxt.innerText = oldTxt; }, 2000);
+        setTimeout(() => { ipTxt.innerText = "ᴅᴇᴅᴜᴘᴇѕ.ᴍɪɴᴇʜᴜᴛ.ɢɢ"; }, 2000);
     });
 
-    // Minehut API Player Count
+    // 2. Minehut API Status
     async function getPlayers() {
         try {
             const res = await fetch('https://api.minehut.com/server/dedupes?byName=true');
             const data = await res.json();
-            const count = data.server.playerCount;
-            document.getElementById('status-dot').innerHTML = `● ONLINE — ${count} PLAYERS`;
-        } catch(e) {
-            document.getElementById('status-dot').innerHTML = `● ONLINE — JOIN NOW`;
-        }
+            document.getElementById('status-dot').innerHTML = `● ONLINE — ${data.server.playerCount} PLAYERS`;
+        } catch(e) { document.getElementById('status-dot').innerHTML = `● ONLINE — JOIN NOW`; }
     }
-    getPlayers();
-    setInterval(getPlayers, 60000);
 
-    // Scroll Animation
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show'); });
+    // 3. Discord Widget API (Settings > Widget > Enable Server Widget)
+    async function getDiscordStats() {
+        try {
+            const res = await fetch('https://discord.com/api/guilds/1362532775294402771/widget.json');
+            const data = await res.json();
+            document.getElementById('discord-stats').innerText = `${data.presence_count} Members Online`;
+        } catch(e) { document.getElementById('discord-stats').innerText = `Join our community!`; }
+    }
+
+    // 4. FAQ Toggle Script
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.addEventListener('click', () => {
+            item.classList.toggle('active');
+            const span = item.querySelector('span');
+            span.innerText = item.classList.contains('active') ? '−' : '+';
+        });
     });
-    document.querySelectorAll('.info-card').forEach(c => observer.observe(c));
 
-    // Particles
+    // 5. Particle Background Script
     const canvas = document.getElementById('bg');
     const ctx = canvas.getContext('2d');
     let w, h, p = [];
-
     function init() {
         w = canvas.width = window.innerWidth;
         h = canvas.height = window.innerHeight;
-        p = Array.from({length: 70}, () => ({
-            x: Math.random()*w, 
-            y: Math.random()*h, 
-            s: Math.random()*2, 
-            v: Math.random()*0.5
-        }));
+        p = Array.from({length: 60}, () => ({ x: Math.random()*w, y: Math.random()*h, s: Math.random()*2, v: Math.random()*0.5 }));
     }
-
     function draw() {
         ctx.clearRect(0,0,w,h);
-        ctx.fillStyle = "rgba(0,198,255,0.3)";
+        ctx.fillStyle = "rgba(0,198,255,0.2)";
         p.forEach(i => {
             ctx.beginPath(); ctx.arc(i.x, i.y, i.s, 0, Math.PI*2); ctx.fill();
             i.y -= i.v; if(i.y < 0) i.y = h;
@@ -204,7 +222,8 @@
         requestAnimationFrame(draw);
     }
     window.addEventListener('resize', init);
-    init(); draw();
+    init(); draw(); getPlayers(); getDiscordStats();
+    setInterval(getPlayers, 60000);
 </script>
 
 </body>
