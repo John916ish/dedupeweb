@@ -124,14 +124,14 @@
     <div class="ip-display" id="copy-ip">
         <span style="font-size: 0.7em; letter-spacing: 2px; opacity: 0.6; display: block;">CLICK TO COPY IP</span>
         <strong id="ip-text" style="font-size: 1.5em; color: #00c6ff;">ᴅᴇᴅᴜᴘᴇѕ.ᴍɪɴᴇʜᴜᴛ.ɢɢ</strong>
-        <span id="status-dot">CHECKING SERVER STATUS...</span>
-        <div class="version-badge">Version 1.21+ Only</div>
+        <span id="status-dot">LOADING...</span>
+        <div class="version-badge">Versions 1.21+</div>
     </div>
 
     <div class="button-container">
-        <a href="https://discord.com/invite/1362532775294402771" class="button discord" target="_blank">
+        <a href="https://discord.com/invite/bGvBGwuAtB" class="button discord" target="_blank">
             JOIN DISCORD
-            <span id="discord-stats" class="sub-text">Loading Community...</span>
+            <span id="discord-stats" class="sub-text">Loading...</span>
         </a>
         <a href="https://dedupes.craftingstore.net/" class="button store" target="_blank">
             SERVER STORE
@@ -167,7 +167,7 @@
 </section>
 
 <footer>
-    &copy; 2026 Dedupes Minecraft Network | <a href="https://dedupes.xyz" style="color:#00c6ff">dedupes.xyz</a>
+    &copy; 2026 Dedupes | <a href="https://dedupes.xyz" style="color:#00c6ff">dedupes.xyz</a>
 </footer>
 
 <script>
@@ -183,7 +183,7 @@
             const res = await fetch('https://api.minehut.com/server/dedupes?byName=true');
             const data = await res.json();
             document.getElementById('status-dot').innerHTML = `● ONLINE — ${data.server.playerCount} PLAYERS`;
-        } catch(e) { document.getElementById('status-dot').innerHTML = `● ONLINE — JOIN NOW`; }
+        } catch(e) { document.getElementById('status-dot').innerHTML = `● ONLINE - JOIN NOW`; }
     }
 
     async function getDiscordStats() {
@@ -226,3 +226,4 @@
 
 </body>
 </html>
+
