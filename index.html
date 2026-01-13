@@ -13,7 +13,7 @@
 
         /* Header */
         header {
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            background: linear-gradient(135deg, #3296e3, #58aced, #93caf5);
             padding: 60px 20px 40px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.4);
         }
@@ -122,13 +122,71 @@
 </header>
 
 <section>
-    <h2>Rules & Info</h2>
-    <ul>
-        <li>1. Be respectful to other players.</li>
-        <li>2. No hacking or griefing.</li>
-        <li>3. Enjoy lifesteal & dupe gameplay.</li>
+    <h2 style="text-align:center; color:#00c6ff; margin-bottom:30px;">About Dedupes</h2>
+    <ul style="list-style:none; padding:0; max-width:900px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px;">
+        <li class="info-card">
+            <strong>What is Dedupes?</strong><br>
+            Dedupes is a Minecraft server focused on fun and creativity, allowing players to explore the world of item duping safely and enjoy unique gameplay experiences.
+        </li>
+        <li class="info-card">
+            <strong>Gameplay Features:</strong><br>
+            Our server offers lifesteal mechanics, custom events, and a variety of ways to make your Minecraft experience exciting. Duping items is just one part of the fun!
+        </li>
+        <li class="info-card">
+            <strong>Community:</strong><br>
+            Join a friendly and active community of players who love exploring, trading, and building together. Respect and collaboration are key to enjoying Dedupes.
+        </li>
+        <li class="info-card">
+            <strong>Join Today!</strong><br>
+            Whether you're a veteran looking for fun duping mechanics or a new player wanting to experience something different, Dedupes welcomes you. Come join us and see what makes our server unique!
+        </li>
     </ul>
 </section>
+
+<style>
+/* Info Cards */
+.info-card {
+    background:#111827;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.3);
+    transition: all 0.4s ease;
+    opacity:0;
+    transform: translateY(30px);
+}
+
+/* Hover effect */
+.info-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow:0 8px 20px rgba(0,0,0,0.5);
+}
+
+/* Animate on scroll */
+@keyframes fadeInUp {
+    0% { opacity:0; transform:translateY(30px); }
+    100% { opacity:1; transform:translateY(0); }
+}
+</style>
+
+<script>
+// Animate cards on scroll
+const cards = document.querySelectorAll('.info-card');
+
+function revealCards() {
+    const triggerBottom = window.innerHeight * 0.9;
+
+    cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+
+        if(cardTop < triggerBottom){
+            card.style.animation = "fadeInUp 0.8s forwards";
+        }
+    });
+}
+
+window.addEventListener('scroll', revealCards);
+window.addEventListener('load', revealCards); // animate on page load
+</script>
 
 <section>
     <div style="display:flex; justify-content:center; margin-top:20px;">
@@ -168,5 +226,3 @@
 
 </body>
 </html>
-
-
